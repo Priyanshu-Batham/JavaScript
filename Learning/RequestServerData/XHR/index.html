@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XHR</title>
+</head>
+<body>
+    <h1 class="name"></h1>
+    <div class="image"></div>
+    <h2 class="followers"></h2>
+</body>
+<script>
+    const xhr = new XMLHttpRequest()
+    const username = "priyanshu-batham"
+    const url = `https://api.github.com/users/${username}`
+    
+    xhr.onreadystatechange = ()=>{
+        console.log("readyState: ", xhr.readyState)
+        if(xhr.readyState === 4){
+            let response = JSON.parse(xhr.responseText)
+            console.log(response)
+
+            let {name, avatar_url, followers} = response
+
+            console.log(name)
+            console.log(avatar_url)
+            console.log(followers)
+
+            document.querySelector(".name").innerText = name
+            document.querySelector(".image").innerHTML = `<img src="${avatar_url}">`
+            document.querySelector(".followers").innerHTML = `Followers: ${followers}`
+        }
+    }
+    xhr.open("GET", url)
+    xhr.send()
+
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Heading</h1>
+</body>
+<script>
+    // const h1 = document.querySelector('h1')
+    // const heading = h1.createElement('h1')
+    const heading = document.createElement('h1');
+    heading.innerText = "priyanshu";
+    heading.id = "myHeading"
+    // heading.className = "head goodHead"
+    heading.setAttribute("class", "veryGoodHead")
+    heading.setAttribute("style", "background-color: red; color: white;")
+    heading.style.border = "2px solid purple"; 
+
+    console.log(heading)
+    console.log(typeof heading)
+
+    document.body.appendChild(heading)
+</script>
+</html>

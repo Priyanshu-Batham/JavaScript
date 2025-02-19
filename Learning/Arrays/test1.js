@@ -52,3 +52,8 @@ console.log(arr)
 //flat() converts nD array to 1D array
 let multi = [1, 2, [3, 4, 5, [6, 7, 8, [9, 10, 11]]]]
 console.log("Flat array: ", multi.flat(Infinity))
+
+//destructuring an array
+let myArr = [1, 2, 3]
+let [one, two] = myArr
+console.table([one, two])

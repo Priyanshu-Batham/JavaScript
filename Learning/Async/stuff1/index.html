@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="height: 100vh;">
+    <h1 class="heading">Counting</h1>
+    <button class="startBtn">Start</button>
+    <button class="stopBtn">Stop</button>
+</body>
+<script>
+    const heading = document.querySelector(".heading")
+    const startBtn = document.querySelector(".startBtn")
+    const stopBtn = document.querySelector(".stopBtn")
+    const body = document.querySelector("body")
+    
+    let count = 0
+    let interval1
+    let running = false
+    let colorGen = ()=>{
+        let hexStr = "0123456789ABCDEF"
+        let str = "#"
+        for(i = 0; i<6; i++){
+            str+= hexStr[Math.floor((Math.random()*100))%15]
+        }
+        return str
+    }
+
+    startBtn.addEventListener("click", (e)=>{
+        if(running) return
+        interval1 = setInterval(()=>{
+            heading.innerText = `${count++}`
+            body.style.backgroundColor = `${colorGen()}`
+        }, 1000)
+        running = true
+    })
+
+    stopBtn.addEventListener("click", (e)=>{
+        if(!running) return
+        clearInterval(interval1)
+        running = false
+    })
+</script>
+</html>
